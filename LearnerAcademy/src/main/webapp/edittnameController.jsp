@@ -12,14 +12,15 @@
 <%TeacherDao dao=new TeacherDao();
 Teacher teacher=new Teacher();
 teacher.setTid(Integer.parseInt(request.getParameter("tid")));
-int row=dao.delete(teacher);
+teacher.setTname(request.getParameter("tname"));
+int row=dao.editt(teacher);
 if(row>0){
-	response.sendRedirect("Teacher.jsp");
+response.sendRedirect("Teacher.jsp");
 }
 else{
 	response.sendRedirect("fail.jsp");
+	
 }
-
 %>
 </body>
 </html>

@@ -27,7 +27,7 @@
 List<Subject> list=dao.display();
 for(Subject b:list){
 %>
-<tr><td><%=b.getSubid() %></td><td><%=b.getSubname() %></td><td><a href="editsub.jsp">Edit</a></td><td><a href="deletesub.jsp">Delete</a></td></tr>
+<tr><td><%=b.getSubid() %></td><td><%=b.getSubname() %></td><td><a href="editsub.jsp?id=<%=b.getSubid()%>">Edit</a></td><td><a href="deletesub.jsp">Delete</a></td></tr>
 <%} %>
 </table>
 </form>

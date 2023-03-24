@@ -13,5 +13,9 @@
         <property name="hbm2ddl.auto">update</property>
         <property name="show_sql">true</property>
         <mapping class="com.caltech.pojo.User"/>
+        <mapping class="com.caltech.pojo.Clas"/>
+        <mapping class="com.caltech.pojo.Student"/>
+        <mapping class="com.caltech.pojo.Subject"/>
+        <mapping class="com.caltech.pojo.Teacher"/>
     </session-factory>
 </hibernate-configuration>

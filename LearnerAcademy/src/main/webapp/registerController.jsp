@@ -1,8 +1,8 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import="com.caltech.pojo.*" %>
-    <%@page import="com.caltech.dao.*" %>
+    <%@ page import="com.caltech.pojo.User" %>
+    <%@page import="com.caltech.dao.UserDao" %>
 <!DOCTYPE html>
 <html>
 <head>

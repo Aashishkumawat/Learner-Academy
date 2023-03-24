@@ -2,10 +2,13 @@ package com.caltech.pojo;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -20,7 +23,16 @@ private String address;
 private int phno;
 @Temporal(TemporalType.DATE)
 private Date Dateofbirth;
-private String cls;
+@OneToOne(cascade = CascadeType.ALL)
+@JoinColumn(name = "id")
+private Clas clas;
+
+public Clas getClas() {
+	return clas;
+}
+public void setClas(Clas clas) {
+	this.clas = clas;
+}
 public Date getDateofbirth() {
 	return Dateofbirth;
 }
@@ -57,12 +69,6 @@ public int getPhno() {
 }
 public void setPhno(int phno) {
 	this.phno = phno;
-}
-public String getCls() {
-	return cls;
-}
-public void setCls(String cls) {
-	this.cls = cls;
 }
 
 }
