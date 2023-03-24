@@ -1,4 +1,4 @@
-<%@page import="java.util.ArrayList"%>
+<%@page import="org.hibernate.internal.build.AllowSysOut"%>
 <%@page import="com.caltech.pojo.Subject"%>
 <%@page import="com.caltech.dao.SubjectDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -11,16 +11,21 @@
 </head>
 <body>
 <%SubjectDao dao=new SubjectDao();
-Subject subject=new Subject(); 
+Subject subject=new Subject();
 subject.setSubid(Integer.parseInt(request.getParameter("subid")));
-int row=dao.delete(subject);
+subject.setSubname(request.getParameter("subname"));
+int row=dao.editsub(subject);
+%>
+<%=row 
+%>
+<% 
 if(row>0){
-	response.sendRedirect("Subject.jsp");
+response.sendRedirect("Subject.jsp");
 }
 else{
-	response.sendRedirect("fail.jsp");
+	response.sendRedirect("Dashboard.jsp");
+	
 }
-
 %>
 </body>
 </html>

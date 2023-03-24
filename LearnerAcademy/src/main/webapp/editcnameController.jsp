@@ -11,15 +11,14 @@
 <body>
 <%ClasDao dao=new ClasDao();
 Clas clas=new Clas();
-clas.setId(Integer.parseInt(request.getParameter("cid")));
-int row=dao.delete(clas);
-if(row>0){
+clas.setCname(request.getParameter("clsname"));
+int row=dao.editc(clas);
+if (row>0){
 	response.sendRedirect("Class.jsp");
 }
 else{
-	response.sendRedirect("fail.jsp");
+	response.sendRedirect("Dashboard.jsp");
 }
-
 %>
 </body>
 </html>

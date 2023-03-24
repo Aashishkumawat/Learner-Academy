@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 
 import com.caltech.dbconfig.DbUtil;
 import com.caltech.pojo.Clas;
+import com.caltech.pojo.Teacher;
 
 public class ClasDao {
 	public int addclas(Clas clas) {
@@ -32,5 +33,35 @@ public class ClasDao {
 		trans.commit();
 		session.close();
 		return list;
+	}
+	
+	public int editc(Clas clas) {
+		DbUtil dbconn=new DbUtil();
+		Session session=dbconn.dbConn();
+		Transaction trans=session.beginTransaction();
+		Clas clas1=new Clas();
+		clas1.setId(clas.getId());
+		clas1.setCname(clas.getCname());
+		session.saveOrUpdate(clas1);
+		trans.commit();
+		session.close();
+		return 0;
+	
+	}
+	
+	public int delete(Clas clas) {
+		DbUtil dbconn=new DbUtil();
+		Session session=dbconn.dbConn();
+		Transaction trans=session.beginTransaction();
+		Query q=session.createQuery("delete from Clas where id=2");
+		Clas c=new Clas();
+		c.setId(2);
+		q.setParameter("id",c.getId());
+		if(q.executeUpdate()>0) {
+			System.out.println("deleted");
+		}
+		trans.commit();
+		session.close();
+		return 0;
 	}
 }

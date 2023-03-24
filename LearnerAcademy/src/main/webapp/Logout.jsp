@@ -7,9 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="editsname.jsp">
-<input type="hidden" name="sid" value=<%=request.getParameter("id") %>>
-<input type="submit" value="editsname">
-</form>
+<% HttpSession sessionobj=request.getSession(false); 
+if(sessionobj!=null){
+	sessionobj.invalidate();
+}
+response.sendRedirect("login.jsp");
+
+%>
 </body>
 </html>

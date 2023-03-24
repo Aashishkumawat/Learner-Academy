@@ -9,7 +9,7 @@
 <body>
 <h1><i>Adding a Student</i></h1>
 <form action="addstudentController.jsp">
-</form>
+
 <table>
 <tr><td>First Name</td><td><input type="text" name="fname"></td></tr>
 <tr><td>Last Name</td><td><input type="text" name="lname"></td></tr>
@@ -18,5 +18,6 @@
 <tr><td>Date of Birth</td><td><input type="date" name="dob"></td></tr>
 <tr><td></td><td><input type="submit" value="Add"></td></tr>
 </table>
+</form>
 </body>
 </html>

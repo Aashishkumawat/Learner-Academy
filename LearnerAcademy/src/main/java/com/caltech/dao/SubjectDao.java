@@ -35,4 +35,34 @@ public class SubjectDao {
 		return list;
 	}
 	
+	public int editsub(Subject subject) {
+		DbUtil dbconn=new DbUtil();
+		Session session=dbconn.dbConn();
+		Transaction trans=session.beginTransaction();
+		Subject sub1=new Subject();
+		sub1.setSubid(subject.getSubid());
+		sub1.setSubname(subject.getSubname());
+		session.saveOrUpdate(sub1);
+		trans.commit();
+		session.close();
+		return 0;
+	
+	}
+	
+	public int delete(Subject subject) {
+		DbUtil dbconn=new DbUtil();
+		Session session=dbconn.dbConn();
+		Transaction trans=session.beginTransaction();
+		Query q=session.createQuery("delete from Subject where subid=12");
+		Subject e=new Subject();
+		e.setSubid(12);
+		q.setParameter("id",e.getSubid());
+		if(q.executeUpdate()>0) {
+			System.out.println("deleted");
+		}
+
+		trans.commit();
+		session.close();
+		return 0;
+	}
 }

@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<form action="editsubname.jsp">
+<input type="hidden" name="subid" value=<%=request.getParameter("id") %>>
+<input type="submit" value="editsubname">
+</form>
 </body>
 </html>
